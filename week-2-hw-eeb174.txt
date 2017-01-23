@@ -226,4 +226,30 @@ Q7:
 for datafile in *.txt; do echo $datafile; cp $datafile ~/Desktop/eeb-177/CSB/unix/sandbox/temp/edited-$datafile; done
 
 
+Q8:
 
+	1-Using grep
+		1. incorrect, because it would show Software as an output.
+		2. incorrect, becaue -E is used for regular expressions.
+		3. correct, because -w shows the word of on its own.
+		4. incorrect, because it would show Software as an ouput since -w is not used to specify boundary of the word. It is just case-insensitive 
+	
+	2. Find Pipeline Reading Comprehension 
+		wc -l $(find . -name '*.dat' ) | sort -n
+		this command will first run inside $( ) which is finding the files that end in .dat. Then it counts the number of the lines in each file, and then it sorts them numerically based on the number of their lines.
+	
+	3. Matching and subtracting 
+		1. incorrect, because grep ose will look inside the files for ose and not the name of the file.
+		2. incorrect, because the ose.dat should be inside single quotes. 
+		3. correct, this command will first find names ending in ose.dat from data, and then grep -v "temp"  will eliminate the ones containing the word temp. 
+	
+	4. Tracking a Species 
+
+
+	5.Little Women
+		for filename in *LittleWomen.txt
+		do 
+			echo $filename | grep "Amy" "Jo" "Beth" "Meg"| 
+
+	6. Finding Files with different Properties 
+		$ find ./ -type f -mtime -1 -user ahmed 
