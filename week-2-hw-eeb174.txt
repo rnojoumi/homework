@@ -209,3 +209,16 @@ Q5:
   768  history 15 >> ~/Desktop/eeb-177/homework/week-2-hw-eeb174.txt 
   769  history 17
   770  history 18 >> ~/Desktop/eeb-177/homework/week-2-hw-eeb174.txt 
+
+
+Q6:
+	1. command: cd ~/Desktop/eeb-177/CSB/unix/sandbox
+	2. The size of the file is 553K
+	3.  command: cp Marra2014_data.fasta ../sandbox/my_file.fasta
+	4. 16 contigs are classified as isogroup00036, command: grep -c isogroup00036 my_file.fasta
+	5. command: tr -s '  ' ',' <my_file.fasta> my_file2.fasta
+	6. 955 unique isogroups are in the file. command: grep -c isogroup my_file.fasta | uniq
+	7. highest numreads is 3330 and its contig is 00302
+		command: grep "numreads=" my_file2 |cut -d "," -f 3| sort -V
+
+
