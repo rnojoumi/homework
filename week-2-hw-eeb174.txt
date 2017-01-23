@@ -165,3 +165,15 @@ There are 153 unique familie.
      33 Viverridae
       3 Vombatidae
      21 Ziphiidae
+
+Q3: 
+
+  728  pwd
+  729  tail -n +2 ../data/pacifici2013_data.csv
+  730  tail -n +2 ../data/Pacifici2013_data.csv
+  731  tail -n+2 ../data/Pacifici2013_data.csv  | cut -d ';' -f 2-6
+  732  tail -n+2 ../data/Pacifici2013_data.csv  | cut -d ';' -f 2-6 | tr -s ';' ' '
+  733  tail -n+2 ../data/Pacifici2013_data.csv  | cut -d ';' -f 2-6 | tr -s ';' ' ' | sort -r -n -k 6
+  734  tail -n+2 ../data/Pacifici2013_data.csv  | cut -d ';' -f 2-6 | tr -s ';' ' ' | sort -r -n -k 6 > BodyM.csv
+  735  history 10
+  736  history 10 >> ~/Desktop/eeb-177/homework/week-2-hw-eeb174.txt 
