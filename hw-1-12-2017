@@ -1,0 +1,22 @@
+ABSOLUTE VS RELATIVE PATHS CORRECT ANSWERS:
+	5. cd ~ is a shortcut for home directory 
+	7. cd ~/data/ .. this command will navigate up to home directory, then down to data and then back up to home directory again
+	8. cd this command alone navigates to home directory 
+	9. cd .. navigates up which would be the home directory in this case
+
+RELATIVE PATH RESOLUTION CORRECT ANSWER: 
+	4. original pnas_final pnas_sub
+		the command " ls ../backup" will navigate up to Users (..) and then down to backup (/backup) an will show the contents of  			it which are: original, pnas_final and pnas_sub
+
+ls READING COMPREHENSION CORRECT ANSWER:
+	2. ls -r -F
+	3. ls -r -F /Users/backup
+	4. choice 2 and 3 both correct 
+		the list the question asked for display is in the directory that we are in, so ls alone would show all the contents. the 			-r would list them in reverse order and -F adds / to the names. in choice 3 the path is explicitly shown again which is 		unnecessary but correct. 
+
+EXPLORING MORE ls ARGUMENT ANSWER:
+	the command "ls -l" would show more information than only the name of the contents, such as file size and time of its last 		modification in a long listing format. 
+	the command "ls -h" would print human readable sizes (e.g., 1K 234M 2G)
+
+LISTING RECURSIVELY AND BY TIME ANSWER:
+	the command "ls -R -t" would list the directories in  alphabetical order and in each of them, the contents would be listed by the 		time of last change.
