@@ -1,3 +1,5 @@
+***please note that hw-1-12-2017 was submitted on "class-assignment" repository before the due date. This is a resubmission of the hw in the correct repository for homeworks.
+
 ABSOLUTE VS RELATIVE PATHS CORRECT ANSWERS:
 	5. cd ~ is a shortcut for home directory 
 	7. cd ~/data/ .. this command will navigate up to home directory, then down to data and then back up to home directory again
