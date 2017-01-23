@@ -186,4 +186,26 @@ Q4:
 Cetartiodactyla Balaenidae Eubalaena Eubalaena glacialis 22999999.91
 
 10th smallest 
-Chiroptera Vespertilionidae Pipistrellus Pipistrellus nanulus 2.51
+Chiroptera Vespertilionidae Pipistrellus Pipistrellus nanulus 2.51  754  wc -l BodyM.csv 
+ 
+
+Q5: 
+
+   753  cd CSB/unix/sandbox/
+  754  wc -l BodyM.csv 
+  755  grep Vombatidae BodyM.csv 
+  756  grep -c Vombatidae BodyM.csv 
+  757  grep Bos BodyM.csv 
+  758  grep -w Bos BodyM.csv 
+  759  grep -i Bos BodyM.csv 
+  760  grep -B 2 -A 2 "Gorilla gorilla" BodyM.csv 
+  761  grep -n "Gorilla gorilla" BodyM.csv 
+  762  grep Gorilla BodyM.csv  | grep -v gorilla 
+  763  grep -w "Gorilla\|Pan" BodyM.csv 
+  764  cd ~/CSB/unix
+  765  cd ~/Desktop/eeb-177/CSB/unix/
+  766  grep -r "Gorilla" data
+  767  history 15
+  768  history 15 >> ~/Desktop/eeb-177/homework/week-2-hw-eeb174.txt 
+  769  history 17
+  770  history 18 >> ~/Desktop/eeb-177/homework/week-2-hw-eeb174.txt 
