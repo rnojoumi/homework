@@ -177,3 +177,13 @@ Q3:
   734  tail -n+2 ../data/Pacifici2013_data.csv  | cut -d ';' -f 2-6 | tr -s ';' ' ' | sort -r -n -k 6 > BodyM.csv
   735  history 10
   736  history 10 >> ~/Desktop/eeb-177/homework/week-2-hw-eeb174.txt 
+
+
+
+Q4:
+
+10th largest
+Cetartiodactyla Balaenidae Eubalaena Eubalaena glacialis 22999999.91
+
+10th smallest 
+Chiroptera Vespertilionidae Pipistrellus Pipistrellus nanulus 2.51
