@@ -221,4 +221,9 @@ Q6:
 	7. highest numreads is 3330 and its contig is 00302
 		command: grep "numreads=" my_file2 |cut -d "," -f 3| sort -V
 
+Q7:
+ command: 
+for datafile in *.txt; do echo $datafile; cp $datafile ~/Desktop/eeb-177/CSB/unix/sandbox/temp/edited-$datafile; done
+
+
 
