@@ -9,8 +9,8 @@ Macroscelidea
 Rodentia
 
 Q2:
-command: cut -d ";" -f 3 Pacifici2013_data.csv|sort| uniq -c| wc -l
-There are 153 unique familie. 
+command: cut -d ";" -f 3 Pacifici2013_data.csv| tail n+2|sort| uniq -c| wc -l
+There are 152 unique familie. 
 (The number before the name of the family represents the number of repetition of those.) 
       9 Abrocomidae
       2 Acrobatidae
@@ -217,9 +217,9 @@ Q6:
 	3.  command: cp Marra2014_data.fasta ../sandbox/my_file.fasta
 	4. 16 contigs are classified as isogroup00036, command: grep -c isogroup00036 my_file.fasta
 	5. command: tr -s '  ' ',' <my_file.fasta> my_file2.fasta
-	6. 955 unique isogroups are in the file. command: grep -c isogroup my_file.fasta | uniq
+	6. 43 unique isogroups are in the file. command: grep ">" my_file.fasta | cut -d "," -f 4 | sort -n | uniq | wc -l
 	7. highest numreads is 3330 and its contig is 00302
-		command: grep "numreads=" my_file2 |cut -d "," -f 3| sort -V
+		command: grep ">" my_file2 | cut -d "," -f 1,3 | sort -t "=" -k 2 -n | tail -n 1
 
 Q7:
  command: 
@@ -229,9 +229,9 @@ for datafile in *.txt; do echo $datafile; cp $datafile ~/Desktop/eeb-177/CSB/uni
 Q8:
 
 	1-Using grep
-		1. incorrect, because it would show Software as an output.
+		1. incorrect, because it will capture the whole line too.
 		2. incorrect, becaue -E is used for regular expressions.
-		3. correct, because -w shows the word of on its own.
+		3. correct, because -w flag considers "of" a single word.
 		4. incorrect, because it would show Software as an ouput since -w is not used to specify boundary of the word. It is just case-insensitive 
 	
 	2. Find Pipeline Reading Comprehension 
@@ -239,17 +239,27 @@ Q8:
 		this command will first run inside $( ) which is finding the files that end in .dat. Then it counts the number of the lines in each file, and then it sorts them numerically based on the number of their lines.
 	
 	3. Matching and subtracting 
-		1. incorrect, because grep ose will look inside the files for ose and not the name of the file.
+		1. correct, because this command will first find names ending in ose.dat from data, and then grep -v "temp"  will eliminate the ones containing temp. 
 		2. incorrect, because the ose.dat should be inside single quotes. 
-		3. correct, this command will first find names ending in ose.dat from data, and then grep -v "temp"  will eliminate the ones containing the word temp. 
-	
+		3. incorrect, because grep cant use  the generated variable and it wont work.
+		4. incorrect
+
+
 	4. Tracking a Species 
+		grep -w $1 -r $2 | cut -d : -f 2 | cut -d , -f 1,3 > $1.txt
+		the last step takes the first and third column and appends it to $1.txt where variable $1 is species names. the variable 1 and 2 in the first part are the species and directory respectively, the -r would recursively search for the given species in all the files and directories in the given directory. the delimeter used in command "cut -d : -f 2" is wrong because we don't have that in the files, and the command itself is not needed because we dont want to cut only column 2.  
+
+
+
 
 
 	5.Little Women
-		for filename in *LittleWomen.txt
+
+		for NAME in Amy Beth Meg Jo
 		do 
-			echo $filename | grep "Amy" "Jo" "Beth" "Meg"| 
+		echo "# of $NAME mentioned="	
+		grep -o $NAME LittleWomen.txt | wc -l
+		done
 
 	6. Finding Files with different Properties 
 		$ find ./ -type f -mtime -1 -user ahmed 
