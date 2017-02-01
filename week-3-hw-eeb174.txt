@@ -1,0 +1,24 @@
+QUESTION 1
+	1.  61 times the levels of individual 3 was recorded
+		command: cut -f 1 Gesquiere2011_data.csv |grep -c -w 3
+		this cuts the first column which is the men ID and grep takes and counts the number the ID3 was recorded.
+
+		5 times the levels of individual 27 was recorded 
+		command: cut -f 1 Gesquiere2011_data.csv |grep -c -w 27
+	
+	2. first we write a script using gedit and save it as a .sh in the scrept folder: 
+	 	 #! /bin/bash
+		cut -f 1 $1 | grep -c -w $2
+		this will cut the first column which is the male ID (variable 1), and then grep -c -w will count the number of records which would be variable 2. using grep --w is needed to not grep for example ID of 77 when $1 is 7. 
+	    	to give execute permission we can run:    chmod u+x week-3-hw.sh 
+	3. script :
+		#! /bin/bash
+		menID=$(tail -n +2 Gesquiere2011_data.csv | cut -f 1 | sort -n | uniq)
+		for ID in $menID
+		do
+ 			number=$(cut -f 1 Gesquiere2011_data.csv |grep -c -w $ID)
+ 			echo "ID $ID was $number times sampled"
+		done
+		first we want the first column which is the menID to be sorted numerically, also we use uniq to not have duplicates. then for this column we use a loop count each id. 
+
+QUESTION 2
