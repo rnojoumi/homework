@@ -20,5 +20,30 @@ QUESTION 1
  			echo "ID $ID was $number times sampled"
 		done
 		first we want the first column which is the menID to be sorted numerically, also we use uniq to not have duplicates. then for this column we use a loop count each id. 
-
+		(to give execute permission we can run:    chmod u+x)
 QUESTION 2
+	1. script :
+		#! /bin/bash
+		echo "name of the file:"
+		echo $1
+		echo "rows:"
+		wc -l < ~/Desktop/eeb-177/CSB/unix/data/Saavedra2013/$1 
+		echo "column"
+		head -n 1 ~/Desktop/eeb-177/CSB/unix/data/Saavedra2013/$1 | tr -d '\s' | tr -d '\n' | wc -c
+		first we just type the name of the file, then we count the rows by wc -l for the variable 1 which is the file. then for counting the column we can only look at the first row, and remove spaces and then count the number of columns. 
+
+	2.  script:
+			#! /bin/bash
+			for filename in ~/Desktop/eeb-177/CSB/unix/data/Saavedra2013/*.txt
+			do
+ 				row= `cat $filename | wc -l`
+ 				column= `head -n 1 $filename | tr -d ' ' |tr -d '\n' | wc -c`
+ 				echo $filename row=$row column=$column
+			done 
+			*.txt will take all the files in the Saavedra2013 folder. we can use loop to find the number of rows and columns using the same command as previous question. 
+	3. we can use the output of the previous script and sort them to find the largest number of rows and columns.
+		bash saavedra2.sh | sort -n -r -k 2 | head -n 1	
+		bash saavedra2.sh | sort -n -r -k 3 | head -n 1
+		(column 2 is the number of rows and 3 is the columns)
+		n58.txt 678 90 ( the largest number of rows)
+		n56.txt 110 207( the largest number of columns)
